@@ -1,4 +1,4 @@
-name: ROS melodic build workflow
+name: ROS melodic build and run test
 
 on: push
 
@@ -35,8 +35,13 @@ jobs:
         rosdep update
         rosdep install -i -y --from-paths ./
 
-    - name: build
+    - name: Build test
       run: |
         source /opt/ros/melodic/setup.bash
         cd ${CATKIN_WS}
         catkin build
+
+    - name: Run test
+      run: |
+        source ${CATKIN_WS}/devel/setup.bash
+        bash -xv ./test/test.bash

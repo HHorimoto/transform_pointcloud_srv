@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="transform_pointcloud_srv" name="transform_pointcloud_srv" type="transform_pointcloud_srv" output="screen" />
+
+    <arg name="bag" default="rosbag" />
+    <arg name="bag_path" default="$(find transform_pointcloud_srv)/$(arg bag).bag" />
+    <node name="playbag" pkg="rosbag" type="play" args="--clock $(arg bag_path)" required="false" />
+</launch>

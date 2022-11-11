@@ -1,4 +1,4 @@
-name: ROS noetic build workflow
+name: ROS noetic build test
 
 on: push
 
@@ -35,7 +35,7 @@ jobs:
         rosdep update
         rosdep install -i -y --from-paths ./
 
-    - name: build
+    - name: Build test
       run: |
         source /opt/ros/noetic/setup.bash
         cd ${CATKIN_WS}
