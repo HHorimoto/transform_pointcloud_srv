@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# SPDX-FileCopyrightText: 2022 Hiroto Horimoto
+# SPDX-License-Identifier: BSD-3-Clause
+
 import rospy
 import std_msgs.msg
 from transform_pointcloud_srv.srv import TransformPointcloud

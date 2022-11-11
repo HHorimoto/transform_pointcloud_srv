@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Hiroto Horimoto
+// SPDX-License-Identifier: BSD-3-Clause
+
 #include <ros/ros.h>
 #include <tf/transform_listener.h>
 #include <pcl_ros/point_cloud.h>
