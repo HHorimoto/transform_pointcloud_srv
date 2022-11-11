@@ -2,13 +2,12 @@
 
 **This package provides service on transform.**
 
-![melodic workflow](https://github.com/HHorimoto/transform_pointcloud_srv/actions/workflows/melodic_build.yml/badge.svg)
-![noetic workflow](https://github.com/HHorimoto/transform_pointcloud_srv/actions/workflows/noetic_build.yml/badge.svg)
+![melodic workflow](https://github.com/HHorimoto/transform_pointcloud/actions/workflows/melodic.yml/badge.svg)
+![noetic workflow](https://github.com/HHorimoto/transform_pointcloud/actions/workflows/noetic.yml/badge.svg)
 
 ## Requirement
-+ Ubuntu 18.04 and 20.04
-+ ROS (Melodic and Noetic)
-+ Python 2.7.x
++ ROS Melodic (on Ubuntu 18.04 LTS, build and run test on Github Actions)
++ ROS Noetic (on Ubuntu 20.04 LTS, only build test on Github Actions)
 
 ## Set Up
 Download `transform_pointcloud_srv` package.
