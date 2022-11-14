@@ -7,7 +7,7 @@
 
 ## Requirement
 + ROS Melodic (on Ubuntu 18.04 LTS, build and run test on Github Actions)
-+ ROS Noetic (on Ubuntu 20.04 LTS, only build test on Github Actions)
++ ROS Noetic (on Ubuntu 20.04 LTS, build and run test on Github Actions)
 
 ## Set Up
 Download `transform_pointcloud_srv` package.
