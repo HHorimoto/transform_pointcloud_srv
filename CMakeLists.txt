@@ -23,17 +23,12 @@ generate_messages(
   sensor_msgs
 )
 
-catkin_package(
-  # INCLUDE_DIRS include
-  # LIBRARIES transform_pointcloud_srv
-  # CATKIN_DEPENDS roscpp rospy std_msgs message_runtime sensor_msgs pcl_ros                    
-  # DEPENDS system_lib
-)
+catkin_package()
 
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(transform_pointcloud_srv src/transform_pointcloud_srv.cpp)
-target_link_libraries(transform_pointcloud_srv ${catkin_LIBRARIES})
-add_dependencies(transform_pointcloud_srv transform_pointcloud_srv_gencpp)
+add_executable(transform_pointcloud_srv_node src/transform_pointcloud_srv_node.cpp)
+target_link_libraries(transform_pointcloud_srv_node ${catkin_LIBRARIES})
