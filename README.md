@@ -80,6 +80,19 @@ resp1 = client(topic_name, frame_msg)
 rospy.loginfo("info : frame_id = %s, height = %d, width = %d", resp1.cloud_out.header.frame_id, resp1.cloud_out.height, resp1.cloud_out.width)
 ```
 
+## Test
+This package provides test bash for use with `Github Actions`.
+This test confirms if this service returns `PointCloud2` with specified link by rosbag.
+You can also do this test on your computer by following this command.
+I belive that you can see `Success` not `Fail`.
+
+```shell
+$ roscd transform_pointcloud_srv
+$ bash -xv test/test_melodic.bash # or test_noetic.bash
+# You can see result.
+$ killall -9 rosmaster # kill roscore
+```
+
 ## License
 
 Distributed under the BSD-3-Clause License. See `LICENSE` for more information.

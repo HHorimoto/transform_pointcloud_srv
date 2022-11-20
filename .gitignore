@@ -10,3 +10,6 @@
 .#*
 
 *.pyc
+
+# rosbag
+*.bag
