@@ -7,16 +7,12 @@ import rospy
 import std_msgs.msg
 from transform_pointcloud_srv.srv import TransformPointcloud
 
-def transform_pointcloud_srv(topic='/camera/depth/color/points', frame='/base_link'):
+def transform_pointcloud_srv(topic='/velodyne_points', frame='/base_link'):
     rospy.loginfo("TransformPointcloud Service")
-    frame_msg = std_msgs.msg.String()
-    frame_msg.data = frame
-    topic_name = std_msgs.msg.String()
-    topic_name.data = topic
     rospy.wait_for_service('transform_pointcloud')
     try:
         client = rospy.ServiceProxy('transform_pointcloud', TransformPointcloud)
-        resp1 = client(topic_name, frame_msg)
+        resp1 = client(topic, frame)
         # res : resp1.cloud_out
         rospy.loginfo("Get transformed PointCloud2")
         rospy.loginfo("info : frame_id = %s, height = %d, width = %d", 

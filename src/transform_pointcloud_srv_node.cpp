@@ -23,22 +23,22 @@ namespace transform_pointcloud_srv
                                   transform_pointcloud_srv::TransformPointcloud::Response &res)
     {
         // http://docs.ros.org/en/melodic/api/roscpp/html/namespaceros_1_1topic.html
-        boost::shared_ptr<sensor_msgs::PointCloud2 const> pc_data = ros::topic::waitForMessage<sensor_msgs::PointCloud2>(req.topic_name.data, nh);
+        boost::shared_ptr<sensor_msgs::PointCloud2 const> pc_data = ros::topic::waitForMessage<sensor_msgs::PointCloud2>(req.topic_name, nh);
 
         if (pc_data)
         {
             try
             {
-                if (req.target_frame.data.empty() == false)
+                if (req.target_frame.empty() == false)
                 {
-                    if (tf_listener.waitForTransform(req.target_frame.data, pc_data->header.frame_id, ros::Time(0), ros::Duration(4.0)) == false)
+                    if (tf_listener.waitForTransform(req.target_frame, pc_data->header.frame_id, ros::Time(0), ros::Duration(4.0)) == false)
                     {
                         ROS_ERROR("Can't wait for transform");
                         return false;
                     }
-                    if (pcl_ros::transformPointCloud(req.target_frame.data, *pc_data, res.cloud_out, tf_listener) == false)
+                    if (pcl_ros::transformPointCloud(req.target_frame, *pc_data, res.cloud_out, tf_listener) == false)
                     {
-                        ROS_ERROR("Failed pcl_ros::transformPointCloud target_frame:[%s]", req.target_frame.data.c_str());
+                        ROS_ERROR("Failed pcl_ros::transformPointCloud target_frame:[%s]", req.target_frame.c_str());
                         return false;
                     }
                     ROS_INFO("Processed successfully");

@@ -16,14 +16,10 @@ class Client(object):
         self.frame = frame
     
     def test_node(self):
-        frame_msg = String()
-        topic_name = String()
-        frame_msg.data = self.frame
-        topic_name.data = self.topic
         rospy.wait_for_service('transform_pointcloud')
         try:
             client = rospy.ServiceProxy('transform_pointcloud', TransformPointcloud)
-            resp1 = client(topic_name, frame_msg)
+            resp1 = client(self.topic, self.frame)
             frame_id = resp1.cloud_out.header.frame_id
             if (frame_id != self.frame):
                 return False
