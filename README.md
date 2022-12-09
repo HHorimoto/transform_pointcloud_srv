@@ -42,8 +42,8 @@ $ rosrun transform_pointcloud_srv client_py.py
 ```shell
 $ roscd transform_pointcloud_srv/srv
 $ cat TransformPointcloud.srv
-std_msgs/String topic_name # 1st Request argument
-std_msgs/String target_frame # 2nd Request argument
+string topic_name # 1st Request argument
+string target_frame # 2nd Request argument
 ---
 sensor_msgs/PointCloud2 cloud_out # Response value
 ```
@@ -65,12 +65,8 @@ rospy.wait_for_service('transform_pointcloud')
 ```py
 # call
 client = rospy.ServiceProxy('transform_pointcloud', TransformPointcloud)
-frame_msg = std_msgs.msg.String()
-frame_msg.data = "base_link"
-topic_name = std_msgs.msg.String()
-topic_name.data = "/camera/depth/color/points"
 # get
-resp1 = client(topic_name, frame_msg)
+resp1 = client("/camera/depth/color/points", "base_link")
 ```
 
 4. Use Response result for your purposes like below.
