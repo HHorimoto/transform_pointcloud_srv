@@ -7,7 +7,6 @@ import roslaunch
 import rospy
 import rospkg
 import sys
-from std_msgs.msg import String
 from transform_pointcloud_srv.srv import TransformPointcloud
 
 class Client(object):
@@ -34,7 +33,7 @@ def test_node():
     roslaunch.configure_logging(uuid)
     r = rospkg.RosPack()
     p = r.get_path('transform_pointcloud_srv')
-    path = p + "/launch/test.launch"
+    path = p + "/test/test.launch"
     launch = roslaunch.parent.ROSLaunchParent(uuid, [path])
 
     launch.start() # Launch test
