@@ -1,0 +1,4 @@
+string topic_name
+string target_frame
+---
+sensor_msgs/PointCloud2 cloud_out
