@@ -48,6 +48,16 @@ install(DIRECTORY
 )
 #--- end launch
 
+#-- for Python
+ament_python_install_package(${PROJECT_NAME})
+
+install(PROGRAMS
+  scripts/test_talker.py  
+  scripts/test_client.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+#--- end Python
+
 ament_export_dependencies(rosidl_default_runtime)
 # ament_export_include_directories(include)
 ament_package()
