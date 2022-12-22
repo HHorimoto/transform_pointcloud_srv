@@ -11,5 +11,5 @@
 
 *.pyc
 
-# rosbag
-*.bag
+# log
+*.log
